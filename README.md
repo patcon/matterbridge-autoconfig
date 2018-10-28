@@ -35,7 +35,7 @@ pipenv run gunicorn app:app
 
 ## Deployment
 
-We host a version of this on Heroku. Here are the details:
+We host a [version of this on Heroku][demo]. Here are the details:
 
 - `master` branch is automatically deployed there.
 - All changes are made throgh pull requests.
@@ -51,4 +51,5 @@ We host a version of this on Heroku. Here are the details:
 
    [pipenv]: https://pipenv.readthedocs.io/en/latest/
    [pyenv]: https://github.com/pyenv/pyenv
+   [demo]: https://matterbridge-autoconfig-g0vtw.herokuapp.com/
 
