@@ -46,7 +46,7 @@ We host a [version of this on Heroku][demo]. Here are the details:
 
 ## Future Plans
 
-- [ ] Serve as a flask webapp
+- [x] Serve as a flask webapp
 - [ ] Use template via base64 envvar or url
 - [ ] Configure tokens via envvar (upstream in Matterbridge)
 - [ ] Listen for channel updates and regenerate config
