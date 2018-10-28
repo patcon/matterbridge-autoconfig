@@ -11,14 +11,34 @@ Right now it's just a CLI script, but will be a web app eventually.
 
 ## :computer: Local Development
 
+### Setup
+
 We recommend using [`pipenv`][pipenv] and [`pyenv`][pyenv] to manage
 development environments.
 
-```
 pipenv install
 EXPORT SLACK_API_TOKEN=xoxx-1234567890...
+
+### Running
+
+On the command line:
+
+```
 pipenv run python generate.py
 ```
+
+Or, for the web app:
+
+```
+pipenv run gunicorn app:app
+```
+
+## Deployment
+
+We host a [version of this on Heroku][demo]. Here are the details:
+
+- `master` branch is automatically deployed there.
+- All changes are made throgh pull requests.
 
 ## Future Plans
 
@@ -31,4 +51,5 @@ pipenv run python generate.py
 
    [pipenv]: https://pipenv.readthedocs.io/en/latest/
    [pyenv]: https://github.com/pyenv/pyenv
+   [demo]: https://matterbridge-autoconfig-g0vtw.herokuapp.com/
 

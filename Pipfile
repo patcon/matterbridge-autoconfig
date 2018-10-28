@@ -7,6 +7,8 @@ name = "pypi"
 toml = "*"
 slackclient = "*"
 "iso-639" = "*"
+flask = "*"
+gunicorn = "*"
 
 [dev-packages]
 
