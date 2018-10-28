@@ -9,6 +9,7 @@ slackclient = "*"
 "iso-639" = "*"
 flask = "*"
 gunicorn = "*"
+requests = "*"
 
 [dev-packages]
 
