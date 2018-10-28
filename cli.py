@@ -6,6 +6,13 @@ from iso639 import languages
 from slackclient import SlackClient
 import toml
 
+def language_codes():
+    return [lang.alpha2 for lang in languages]
+
+def is_lang_chan(channel_name):
+    chan_lang = channel_name.split("-")[-1]
+    return chan_lang in language_codes()
+
 def generate_toml():
     slack_token = os.environ["SLACK_API_TOKEN"]
     sc = SlackClient(slack_token)
@@ -19,11 +26,11 @@ def generate_toml():
 
     if res["ok"] == True:
         channel_names = [ch["name"] for ch in res["channels"]]
-        for ch in res["channels"]:
-            lang_code = ch["name"].split("-")[-1]
-            if lang_code in [lang.alpha2 for lang in languages]:
-                base_name = ch["name"][:-3]
+        for name in channel_names:
+            if is_lang_chan(name):
+                base_name = name[:-3]
                 if base_name in channel_names:
+                    lang_code = name.split("-")[-1]
                     gateways[base_name].append(lang_code)
 
     config = {}
