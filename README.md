@@ -11,13 +11,26 @@ Right now it's just a CLI script, but will be a web app eventually.
 
 ## :computer: Local Development
 
+### Setup
+
 We recommend using [`pipenv`][pipenv] and [`pyenv`][pyenv] to manage
 development environments.
 
-```
 pipenv install
 EXPORT SLACK_API_TOKEN=xoxx-1234567890...
+
+### Running
+
+On the command line:
+
+```
 pipenv run python generate.py
+```
+
+Or, for the web app:
+
+```
+pipenv run gunicorn app:app
 ```
 
 ## Deployment
