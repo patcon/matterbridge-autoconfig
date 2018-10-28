@@ -16,21 +16,25 @@ Right now it's just a CLI script, but will be a web app eventually.
 We recommend using [`pipenv`][pipenv] and [`pyenv`][pyenv] to manage
 development environments.
 
+```
 pipenv install
-EXPORT SLACK_API_TOKEN=xoxx-1234567890...
+cp sample.env .env
+# Add your Slack API token here:
+vim .env
+```
 
 ### Running
 
 On the command line:
 
 ```
-pipenv run python generate.py
+pipenv run python cli.py
 ```
 
 Or, for the web app:
 
 ```
-pipenv run gunicorn app:app
+pipenv run python app.py
 ```
 
 ## Deployment
