@@ -20,6 +20,13 @@ EXPORT SLACK_API_TOKEN=xoxx-1234567890...
 pipenv run python generate.py
 ```
 
+## Deployment
+
+We host a version of this on Heroku. Here are the details:
+
+- `master` branch is automatically deployed there.
+- All changes are made throgh pull requests.
+
 ## Future Plans
 
 - [ ] Serve as a flask webapp
