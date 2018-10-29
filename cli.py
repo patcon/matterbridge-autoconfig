@@ -81,7 +81,7 @@ def generate_toml():
             "locale": "",
         },
     }
-    account = "slack.g0v-tw"
+    account = "slack.g0vtw"
     for name, locales in gateways.items():
         gw = deepcopy(default_gw)
         gw["name"] = name

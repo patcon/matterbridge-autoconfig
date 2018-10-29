@@ -15,7 +15,7 @@ IgnoreNicks="slackbot"
 # Token="${SLACK_CIVICTECHTO_TOKEN}" # bot user # set in envvar
 ShowJoinPart=true
 
-[slack.g0v-tw]
+[slack.g0vtw]
 # Token="${SLACK_G0VTW_TOKEN}" # real user: bridgebot-patcon # set in envvar
 # Too noisy. Related: https://github.com/42wim/matterbridge/issues/524
 ShowJoinPart=false
