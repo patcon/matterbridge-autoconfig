@@ -45,13 +45,14 @@ if sc.rtm_connect(with_team_state=False):
                 fire_hook = True
                 if type(channel) is dict:
                     channel = channel["id"]
-                logger.info(etype + " - " + channel)
+                logger.debug(etype + " - " + channel)
 
-        webhook_url = os.environ.get("WEBHOOK_URL")
-        webhook_token = os.environ.get("WEBHOOK_TOKEN")
+        webhook_url = os.environ.get("OUTGOING_WEBHOOK_URL")
+        webhook_token = os.environ.get("OUTGOING_WEBHOOK_TOKEN")
         if fire_hook and webhook_url and webhook_token:
+            logger.info("Channels updated. Notifying Matterbridge...")
             r = requests.post(webhook_url, data={'token': webhook_token})
             if r.status_code != 200:
-                logging.warning("POST to webhook failed...")
+                logger.warn("POST to webhook failed...")
 
-        time.sleep(5)
+        time.sleep(1)
