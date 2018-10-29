@@ -1,5 +1,6 @@
 from cli import generate_toml
 from flask import Flask, Response, request
+import os
 import requests
 
 app = Flask(__name__)
@@ -34,4 +35,6 @@ def index():
     return Response(content, mimetype="text/toml")
 
 if __name__ == "__main__":
-    app.run()
+    port = os.environ.get("PORT", 5000)
+    print("Serving app at http://localhost:{} ...".format(port))
+    app.run(port=port)
