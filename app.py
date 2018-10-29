@@ -1,9 +1,19 @@
 from cli import generate_toml
-from flask import Flask, Response
+from flask import Flask, Response, request
 import requests
 
 app = Flask(__name__)
 app.config.from_object("config.BaseConfig")
+
+@app.route("/webhook", methods=["POST"])
+def webhook():
+    if request.method == 'POST':
+        json = request.get_json()
+        print(json)
+        if "challenge" in json:
+            return Response(json["challenge"], mimetype="text/plain")
+
+    return "pong"
 
 @app.route("/")
 def index():
