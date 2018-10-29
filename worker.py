@@ -15,8 +15,9 @@ watched_types = [
     "channel_archive",
     "channel_created",
     "channel_deleted",
-    "channel_joined",
-    "channel_left",
+    # TODO: These become important if we want to fully support bot tokens.
+    #"channel_joined",
+    #"channel_left",
     "channel_rename",
     "channel_unarchive",
 ]
