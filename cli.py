@@ -1,10 +1,18 @@
 from collections import defaultdict
 from copy import copy, deepcopy
+import logging
 import os
 
+from gunicorn.glogging import CONFIG_DEFAULTS
 from iso639 import languages
 from slackclient import SlackClient
 import toml
+
+logging.basicConfig(
+    format=CONFIG_DEFAULTS["formatters"]["generic"]["format"],
+    datefmt=CONFIG_DEFAULTS["formatters"]["generic"]["datefmt"],
+)
+logger = logging.getLogger(__name__)
 
 def language_codes():
     return [lang.alpha2 for lang in languages]
@@ -42,14 +50,21 @@ def generate_toml():
     sc = SlackClient(slack_token)
 
     res = sc.api_call(
-        "channels.list",
+        "conversations.list",
         exclude_archived=True,
+        # TODO: Make it work for private channels if we have an admin scope token?
+        types="public_channel",
+        limit=1000,
     )
 
     gateways = defaultdict(list)
 
+    if res["response_metadata"]["next_cursor"]:
+        # TODO: Add pagination
+        # Related: https://github.com/slackapi/python-slackclient/issues/321
+        logger.warn("More than 1000 channel objects exist, but only fetching 1000. Code needs update.")
+
     if res["ok"] == True:
-        print(translation_channels(res["channels"]))
         gateways = translation_chan_tree(res["channels"])
 
     config = {}
