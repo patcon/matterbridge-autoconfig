@@ -9,15 +9,31 @@ channel-naming rules.
 merged into Matterbridge. Unimplemented features are notes with an
 asterisk*.<.sup>
 
-## Features
+## :love_letter: The Dream
+
+Imagine that you're a member of an international Slack team, and there's a
+channel called `#rad-project`. In this channel, people are speaking Japanese, but you
+only speak English.
+
+Well, this sucks, right? No problem!
+
+Just create a new channel called `#rad-project-en` (with added [language
+code][iso638-1]), and jump in! You'll be joined by a bot who will relay
+and translate all non-English messages into your language. You English
+responses will be relayed _untranslated_ back to `#rad-project`. If your
+new Japanese friends don't speak English, and want to know what you're
+saying, just have them create `#rad-project-ja`, where all non-Japansese
+messages will be translated for them.
+
+## :sparkles: Features
 
 - Supports: Slack
 - Creates translation gateways\* based on language-code suffix
 - Forces Matterbridge config reload when remote config\* changes
 
-## Usage
+## :electric_plug: Usage
 
-Once you've got this app running and configured:
+Once you've got this app running and configured, here's how it works:
 
 - Add a two-letter language suffix to a channel will set the locale of
   that channel. This will allow Matterbridge to translate incoming
@@ -57,7 +73,7 @@ Or, for the web app:
 pipenv run python app.py
 ```
 
-## Configuration
+## :wrench: Configuration
 
 Configuration is done via environment variables. See
 [`sample.env`](sample.env) for
@@ -91,16 +107,18 @@ this endpoint to prompt a reload of the remotely hosted configuration.
 
 The auth token must match the one configured in Matterbridge.
 
-## Deployment
+## :rocket: Deployment
 
 We host a [version of this on Heroku][demo]. Here are the details:
 
 - `master` branch is automatically deployed there.
 - All changes are made throgh pull requests.
 
+<!-- Links -->
+
    [pipenv]: https://pipenv.readthedocs.io/en/latest/
    [pyenv]: https://github.com/pyenv/pyenv
    [demo]: https://matterbridge-autoconfig-g0vtw.herokuapp.com/
    [legacy-tokens]: https://api.slack.com/custom-integrations/legacy-tokens
    [bot-tokens]: https://my.slack.com/apps/new/A0F7YS25R-bots
-
+   [iso638-1]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
