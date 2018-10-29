@@ -98,15 +98,6 @@ We host a [version of this on Heroku][demo]. Here are the details:
 - `master` branch is automatically deployed there.
 - All changes are made throgh pull requests.
 
-## Future Plans
-
-- [x] Serve as a flask webapp
-- [x] Use template via base64 envvar or url
-- [ ] Configure tokens via envvar (upstream in Matterbridge)
-- [ ] Listen for channel updates and regenerate config
-- [ ] POST to Matterbridge endpoint to trigger reload (upstream in
-  Matterbridge)
-
    [pipenv]: https://pipenv.readthedocs.io/en/latest/
    [pyenv]: https://github.com/pyenv/pyenv
    [demo]: https://matterbridge-autoconfig-g0vtw.herokuapp.com/
