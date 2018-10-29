@@ -19,7 +19,7 @@ Well, this sucks, right? No problem!
 
 Just create a new channel called `#rad-project-en` (with added [language
 code][iso638-1]), and jump in! You'll be joined by a bot who will relay
-and translate all non-English messages into your language. You English
+and translate all non-English messages into your language. Your English
 responses will be relayed _untranslated_ back to `#rad-project`. If your
 new Japanese friends don't speak English, and want to know what you're
 saying, just have them create `#rad-project-ja`, where all non-Japansese
