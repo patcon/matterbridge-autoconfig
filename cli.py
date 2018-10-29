@@ -13,6 +13,30 @@ def is_lang_chan(channel_name):
     chan_lang = channel_name.split("-")[-1]
     return chan_lang in language_codes()
 
+def translation_chan_tree(channels):
+    tree = defaultdict(list)
+
+    channel_names = [ch["name"] for ch in channels]
+    for name in channel_names:
+        if is_lang_chan(name):
+            base_name = name[:-3]
+            if base_name in channel_names:
+                lang_code = name.split("-")[-1]
+                tree[base_name].append(lang_code)
+
+    return tree
+
+def translation_channels(channels):
+    translation_channels = []
+    tree = translation_chan_tree(channels)
+    for base, langs in tree.items():
+        translation_channels.append(base)
+        for lang_code in langs:
+            translation_channels.append(base+"-"+lang_code)
+
+    return translation_channels
+
+
 def generate_toml():
     slack_token = os.environ["SLACK_API_TOKEN"]
     sc = SlackClient(slack_token)
@@ -25,13 +49,8 @@ def generate_toml():
     gateways = defaultdict(list)
 
     if res["ok"] == True:
-        channel_names = [ch["name"] for ch in res["channels"]]
-        for name in channel_names:
-            if is_lang_chan(name):
-                base_name = name[:-3]
-                if base_name in channel_names:
-                    lang_code = name.split("-")[-1]
-                    gateways[base_name].append(lang_code)
+        print(translation_channels(res["channels"]))
+        gateways = translation_chan_tree(res["channels"])
 
     config = {}
     config["gateway"] = []
