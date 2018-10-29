@@ -15,6 +15,7 @@ def webhook():
 
     return "pong"
 
+@app.route("/matterbridge.toml")
 @app.route("/")
 def index():
     content_auto = generate_toml()
