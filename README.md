@@ -11,6 +11,8 @@ asterisk*.<.sup>
 
 ## :love_letter: The Dream
 
+### Internationalization
+
 Imagine that you're a member of an international Slack team, and there's a
 channel called `#rad-project`. In this channel, people are speaking Japanese, but you
 only speak English.
@@ -24,6 +26,14 @@ responses will be relayed _untranslated_ back to `#rad-project`. If your
 new Japanese friends don't speak English, and want to know what you're
 saying, just have them create `#rad-project-ja`, where all non-Japansese
 messages will be translated for them.
+
+### Transparency
+
+(Not yet implemented.)
+
+Imagine you are part of a team that values transparency, but you use Slack, which has a few hurdles to being able to read messages and participate. Further, some conversations and channels are necessarily more private, and perhaps not being on the public internet is a good thing for them.
+
+Imagine that you could start a channel in Slack for semi-public conversations with the community, but then easily promote a room to being fully transparent by bridging it with Gitter, with full public chat rooms. But renaming your Slack channel from `#rad-project` to `#rad-project-pub`, your channel will automatically be bridged with the Gitter room for `my-organization/rad-project`. If the chat room doesn't exist, it's created. Any messages in Slack will be relayed to this public room, and vice versa. If you decide to bring things private again, just rename the channel back to `#rad-project`, and the bridge will be deactivated.
 
 ## :sparkles: Features
 
